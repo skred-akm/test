@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/style.css">
+  <title>Tableau des Gammes Majeures</title>
+  <style>
+    
+  </style>
+</head>
+<body>
+
+<h1>Tableau des Gammes Majeures</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Gammes Majeures</th>
+      <th>Introduction</th>
+      <th>Développement</th>
+      <th>Dièses</th>
+      <th>Bémols</th>
+      <th>Notes</th>
+      <th>Conclusion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Do majeur (C majeur)</td>
+      <td>La simplicité de Do majeur avec ses notes pures (C D E F G A B) crée une atmosphère claire et sans complication.</td>
+      <td>Les tonalités franches de cette gamme, sans dièse ni bémol, en font souvent un point de départ idéal pour les débutants en musique.</td>
+      <td>0</td>
+      <td>0</td>
+      <td>C D E F G A B</td>
+      <td>Do majeur offre une base solide pour de nombreuses compositions, sa clarté la rendant intemporelle.</td>
+    </tr>
+    <tr>
+      <td>Sol majeur (G majeur)</td>
+      <td>L'énergie dynamique de Sol majeur, avec son unique dièse (F♯), injecte une vitalité distinctive dans la musique.</td>
+      <td>Cette gamme est souvent utilisée pour créer des compositions joyeuses et exubérantes.</td>
+      <td>1</td>
+      <td>0</td>
+      <td>G A B C D E F♯</td>
+      <td>G majeur évoque une ambiance lumineuse et festive, faisant ressortir la positivité dans la musique.</td>
+    </tr>
+    <!-- Ajoutez les autres lignes ici -->
+  </tbody>
+</table>
+
+<p>Conclusion : Chaque gamme majeure offre un monde de possibilités musicales, de la simplicité rafraîchissante à la complexité émotionnelle. En explorant ces gammes, les compositeurs façonnent des paysages sonores uniques, créant une symphonie harmonieuse qui transcende les frontières. Explorez, expérimentez et laissez-vous inspirer par la diversité infinie des gammes majeures.</p>
+<script>
+  // Fonction pour changer la couleur de fond lors du survol
+   changerCouleurLigne = () =>{
+    let lignes = document.querySelectorAll("tr");
+
+    lignes.forEach(function(ligne, index) {
+      // Ignore la première ligne (en-têtes)
+      if (index !== 0) {
+        ligne.addEventListener("mouseover", function() {
+          this.style.backgroundColor = "#e0e0e0";
+        });
+
+        ligne.addEventListener("mouseout", function() {
+          this.style.backgroundColor = "";
+        });
+      }
+    });
+  }
+
+  // Appel de la fonction lors du chargement de la page
+  window.onload = changerCouleurLigne;
+</script>
+</body>
+</html>

@@ -1,15 +1,106 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="styles/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tableau des Gammes Majeures</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
 </head>
 <body>
-    <header>header</header>
-    <main id="main">The content</main>
-    <footer>bye</footer>
-    <script src="js/script.js"></script>
+
+<h1>Tableau des Gammes Majeures</h1>
+
+<script>
+  const gammesMajeures = [
+    { note: "C", introduction: "Introduction pour C majeur.", developpement: "Développement pour C majeur.", dieses: 0, bemols: 0, notes: "C D E F G A B", conclusion: "Conclusion pour C majeur." },
+    { note: "G", introduction: "Introduction pour G majeur.", developpement: "Développement pour G majeur.", dieses: 1, bemols: 0, notes: "G A B C D E F♯", conclusion: "Conclusion pour G majeur." },
+    { note: "D", introduction: "Introduction pour D majeur.", developpement: "Développement pour D majeur.", dieses: 2, bemols: 0, notes: "D E F♯ G A B C♯", conclusion: "Conclusion pour D majeur." },
+    { note: "A", introduction: "Introduction pour A majeur.", developpement: "Développement pour A majeur.", dieses: 3, bemols: 0, notes: "A B C♯ D E F♯ G♯", conclusion: "Conclusion pour A majeur." },
+    { note: "E", introduction: "Introduction pour E majeur.", developpement: "Développement pour E majeur.", dieses: 4, bemols: 0, notes: "E F♯ G♯ A B C♯ D♯", conclusion: "Conclusion pour E majeur." },
+    { note: "B", introduction: "Introduction pour B majeur.", developpement: "Développement pour B majeur.", dieses: 5, bemols: 0, notes: "B C♯ D♯ E F♯ G♯ A♯", conclusion: "Conclusion pour B majeur." },
+    { note: "F♯", introduction: "Introduction pour F♯ majeur.", developpement: "Développement pour F♯ majeur.", dieses: 6, bemols: 0, notes: "F♯ G♯ A♯ B C♯ D♯ F", conclusion: "Conclusion pour F♯ majeur." },
+    { note: "D♭", introduction: "Introduction pour D♭ majeur.", developpement: "Développement pour D♭ majeur.", dieses: 0, bemols: 5, notes: "D♭ E♭ F G♭ A♭ B♭ C", conclusion: "Conclusion pour D♭ majeur." },
+    { note: "A♭", introduction: "Introduction pour A♭ majeur.", developpement: "Développement pour A♭ majeur.", dieses: 0, bemols: 4, notes: "A♭ B♭ C D♭ E♭ F G", conclusion: "Conclusion pour A♭ majeur." },
+    { note: "E♭", introduction: "Introduction pour E♭ majeur.", developpement: "Développement pour E♭ majeur.", dieses: 0, bemols: 3, notes: "E♭ F G A♭ B♭ C D", conclusion: "Conclusion pour E♭ majeur." },
+    { note: "B♭", introduction: "Introduction pour B♭ majeur.", developpement: "Développement pour B♭ majeur.", dieses: 0, bemols: 2, notes: "B♭ C D E♭ F G A", conclusion: "Conclusion pour B♭ majeur." },
+    { note: "F", introduction: "Introduction pour F majeur.", developpement: "Développement pour F majeur.", dieses: 0, bemols: 1, notes: "F G A B♭ C D E", conclusion: "Conclusion pour F majeur." }
+  ];
+
+  const table = document.createElement("table");
+
+  // En-têtes
+  const entetes = ["Note", "Introduction", "Développement", "Dièses", "Bémols", "Notes", "Conclusion"];
+  const enteteRow = document.createElement("tr");
+
+  entetes.forEach((entete) => {
+    const th = document.createElement("th");
+    th.textContent = entete;
+    enteteRow.appendChild(th);
+  });
+
+  table.appendChild(enteteRow);
+
+  // Lignes de données
+  gammesMajeures.forEach((gamme) => {
+    const row = document.createElement("tr");
+
+    Object.values(gamme).forEach((valeur) => {
+      const cellule = document.createElement("td");
+      cellule.textContent = valeur;
+      row.appendChild(cellule);
+    });
+
+    table.appendChild(row);
+  });
+
+  document.body.appendChild(table);
+
+  // Convertir les données en JSON
+  const jsonData = JSON.stringify(gammesMajeures, null, 2);
+  console.log(jsonData); // Affichez dans la console pour vérifier
+</script>
+<script>
+  // Fonction pour changer la couleur de fond lors du survol
+   changerCouleurLigne = () =>{
+    let lignes = document.querySelectorAll("tr");
+
+    lignes.forEach(function(ligne, index) {
+      // Ignore la première ligne (en-têtes)
+      if (index !== 0) {
+        ligne.addEventListener("mouseover", function() {
+          this.style.backgroundColor = "#e0e0e0";
+        });
+
+        ligne.addEventListener("mouseout", function() {
+          this.style.backgroundColor = "";
+        });
+      }
+    });
+  }
+
+  // Appel de la fonction lors du chargement de la page
+  window.onload = changerCouleurLigne;
+</script>
 </body>
 </html>
